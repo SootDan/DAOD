@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://djolrrt60v0ei"]
+
+[ext_resource type="Script" path="res://Script/Party.gd" id="1_sq31i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vuhq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq3d3"]
+bg_color = Color(0.8888, 0.404622, 0.661091, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m36dy"]
+bg_color = Color(0.329412, 0.470588, 0.709804, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="GUI" type="HBoxContainer" parent="Interface"]
+custom_minimum_size = Vector2(480, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="GameScreen" type="VBoxContainer" parent="Interface/GUI"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Combat" type="VBoxContainer" parent="Interface/GUI/GameScreen"]
+custom_minimum_size = Vector2(1680, 360)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Party" type="Panel" parent="Interface/GUI/GameScreen/Combat"]
+custom_minimum_size = Vector2(1680, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vuhq")
+script = ExtResource("1_sq31i")
+party_size = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/GUI/GameScreen/Combat/Party"]
+custom_minimum_size = Vector2(280, 360)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy" type="Panel" parent="Interface/GUI/GameScreen/Combat"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iq3d3")
+
+[node name="CombatLog" type="Panel" parent="Interface/GUI/GameScreen/Combat"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m36dy")
+
+[node name="SideBar" type="HBoxContainer" parent="Interface/GUI"]
+custom_minimum_size = Vector2(240, 1080)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Panel" type="Panel" parent="Interface/GUI/SideBar"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2

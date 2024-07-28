@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bmjwtad7u67w8"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(280, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 279.0
+offset_bottom = 360.0
+bbcode_enabled = true
+text = "[center]Name[/center]"
