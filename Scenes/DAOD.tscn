@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djolrrt60v0ei"]
 
-[ext_resource type="Script" path="res://Script/Party.gd" id="1_sq31i"]
+[ext_resource type="Script" path="res://Script/Party.gd" id="1_84b7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vuhq"]
 
@@ -37,7 +37,7 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(1680, 360)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5vuhq")
-script = ExtResource("1_sq31i")
+script = ExtResource("1_84b7h")
 party_size = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/GUI/GameScreen/Combat/Party"]
