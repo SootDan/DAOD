@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djolrrt60v0ei"]
+[gd_scene load_steps=7 format=3 uid="uid://djolrrt60v0ei"]
 
-[ext_resource type="Script" path="res://Script/Party.gd" id="1_84b7h"]
+[ext_resource type="Script" path="res://Script/Game.gd" id="1_4j2r6"]
+[ext_resource type="Texture2D" uid="uid://rno6q8qa7i6s" path="res://Assets/UI/Background.png" id="2_u837s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vuhq"]
 
@@ -10,9 +11,16 @@ bg_color = Color(0.8888, 0.404622, 0.661091, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m36dy"]
 bg_color = Color(0.329412, 0.470588, 0.709804, 1)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ofowb"]
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_4j2r6")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_u837s")
 
 [node name="Interface" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 
 [node name="GUI" type="HBoxContainer" parent="Interface"]
@@ -37,8 +45,6 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(1680, 360)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5vuhq")
-script = ExtResource("1_84b7h")
-party_size = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/GUI/GameScreen/Combat/Party"]
 custom_minimum_size = Vector2(280, 360)
@@ -70,3 +76,29 @@ alignment = 2
 [node name="Panel" type="Panel" parent="Interface/GUI/SideBar"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1920.0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="Node2D" parent="GameContainer"]
+position = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="GameContainer"]
+position = Vector2(1920, 1080)
+scale = Vector2(3840, 2160)
+texture = SubResource("CanvasTexture_ofowb")

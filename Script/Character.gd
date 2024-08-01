@@ -5,52 +5,63 @@ extends Node
 Basic Info
 """
 # https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf
-@onready var char_name: String = "Name McNameface"
-@onready var char_player: String = "Player McPlayerface"
-@onready var char_class = CharClass.char_class.BARD
-@onready var char_race = CharRace.race.DRAGONBORN
-@onready var char_bg = CharBG.bg.CHARLATAN
-@onready var char_alignment = CharAlign.alignment.LAWFUL_GOOD
+@onready var char_info = {
+	"Name": "Name McNameface",
+	"Player":  "Player McPlayerface",
+	"Class": CharClass.char_class.BARD,
+	"Race": CharRace.race.DRAGONBORN,
+	"Background": CharBG.bg.CHARLATAN,
+	"Alignment": CharAlign.alignment.LAWFUL_GOOD,
+}
 
 """
 Stats and Abilities
 """
-@onready var char_max_hp: int = -1
-@onready var char_cur_hp: int = -1
-@onready var char_ac: int = -1
-@onready var char_lvl: int = -1
-@onready var char_xp: int = -1
+@onready var char_stats = {
+	"Max HP": -1,
+	"Current HP": -1,
+	"AC": -1,
+	"Level": -1,
+	"XP": -1,
+}
 
-@onready var char_str: int = -1
-@onready var char_dex: int = -1
-@onready var char_con: int = -1
-@onready var char_int: int = -1
-@onready var char_wis: int = -1
-@onready var char_cha: int = -1
+@onready var char_abilities = {
+	"Strength": -1,
+	"Dexterity": -1,
+	"Constitution": -1,
+	"Intelligence": -1,
+	"Wisdom": -1,
+	"Charisma": -1,
+}
+
+@onready var char_skills = {
+	"Athletics": calc_modifier(char_abilities["Strength"]),
+	"Acrobatics": calc_modifier(char_abilities["Dexterity"]),
+	"Sleight of Hand": calc_modifier(char_abilities["Dexterity"]),
+	"Stealth": calc_modifier(char_abilities["Dexterity"]),
+	"Arcana": calc_modifier(char_abilities["Intelligence"]),
+	"History": calc_modifier(char_abilities["Intelligence"]),
+	"Nature": calc_modifier(char_abilities["Intelligence"]),
+	"Religion": calc_modifier(char_abilities["Intelligence"]),
+	"Animal Handling": calc_modifier(char_abilities["Intelligence"]),
+	"Insight": calc_modifier(char_abilities["Intelligence"]),
+	"Medicine": calc_modifier(char_abilities["Intelligence"]),
+	"Perception": calc_modifier(char_abilities["Intelligence"]),
+	"Survival": calc_modifier(char_abilities["Intelligence"]),
+	"Deception": calc_modifier(char_abilities["Intelligence"]),
+	"Intimidation": calc_modifier(char_abilities["Intelligence"]),
+	"Performance": calc_modifier(char_abilities["Intelligence"]),
+}
 
 """
-Skills
+Equipment
 """
-@onready var char_athl: int = calc_modifier(char_str)
+#TODO: Equipment
 
-@onready var char_acro: int = calc_modifier(char_dex)
-@onready var char_soha: int = calc_modifier(char_dex)
-@onready var char_stea: int = calc_modifier(char_dex)
-
-@onready var char_arca: int = calc_modifier(char_int)
-@onready var char_hist: int = calc_modifier(char_int)
-@onready var char_natu: int = calc_modifier(char_int)
-@onready var char_reli: int = calc_modifier(char_int)
-
-@onready var char_anim: int = calc_modifier(char_int)
-@onready var char_insi: int = calc_modifier(char_wis)
-@onready var char_medi: int = calc_modifier(char_wis)
-@onready var char_perc: int = calc_modifier(char_wis)
-@onready var char_surv: int = calc_modifier(char_wis)
-
-@onready var char_dece: int = calc_modifier(char_cha)
-@onready var char_inti: int = calc_modifier(char_cha)
-@onready var char_perf: int = calc_modifier(char_cha)
+"""
+Attacks / Spells
+"""
+#TODO: Attacks/Spells
 
 
 func calc_modifier(ability: int) -> int:
