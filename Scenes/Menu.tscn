@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqnrf5qqfeiw"]
+
+[ext_resource type="Script" path="res://Script/Menu.gd" id="1_uvt8b"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_uvt8b")
+
+[node name="Main" type="VBoxContainer" parent="."]
+offset_right = 128.0
+offset_bottom = 136.0
+scale = Vector2(15, 15)
+
+[node name="NewCampaign" type="Button" parent="Main"]
+layout_mode = 2
+text = "New Campaign"
+
+[node name="LoadCampaign" type="Button" parent="Main"]
+layout_mode = 2
+text = "Load Campaign"
+
+[node name="Settings" type="Button" parent="Main"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitGame" type="Button" parent="Main"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Settings" type="VBoxContainer" parent="."]
+offset_right = 128.0
+offset_bottom = 136.0
+scale = Vector2(15, 15)
+
+[node name="Setting1" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Setting1"
+
+[node name="Setting2" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Setting2"
+
+[node name="Setting3" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Setting3"
+
+[node name="BackToMain" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Back to Menu"
+
+[connection signal="pressed" from="Main/Settings" to="." method="change_to_settings"]
+[connection signal="pressed" from="Settings/BackToMain" to="." method="change_to_menu"]
