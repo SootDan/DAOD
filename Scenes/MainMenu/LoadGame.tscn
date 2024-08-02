@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://hi44v1ut7pp8"]
+
+[node name="LoadGame" type="VBoxContainer"]
+visible = false
+offset_right = 128.0
+offset_bottom = 136.0
+scale = Vector2(15, 15)
+
+[node name="BackToMain" type="Button" parent="."]
+layout_mode = 2
+text = "Back to Menu"

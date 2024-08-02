@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d37nytrosqfnd"]
+
+[node name="NewGame" type="VBoxContainer"]
+offset_right = 180.0
+offset_bottom = 142.0
+scale = Vector2(10, 10)
+
+[node name="PlayerCount" type="TabBar" parent="."]
+layout_mode = 2
+tab_count = 6
+tab_0/title = "1"
+tab_1/title = "2"
+tab_2/title = "3"
+tab_3/title = "4"
+tab_4/title = "5"
+tab_5/title = "6"
+
+[node name="PlayerName" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+placeholder_text = "... Campaign Name ..."
+context_menu_enabled = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Setting3" type="Button" parent="."]
+layout_mode = 2
+text = "Setting3"
+
+[node name="BackToMain" type="Button" parent="."]
+layout_mode = 2
+text = "Back to Menu"

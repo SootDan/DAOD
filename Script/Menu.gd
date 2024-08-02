@@ -9,7 +9,21 @@ extends Node2D
 
 func _ready():
 	set_menu_visibility(menu)
-	#settings.get_node("ChooseArray").
+	
+	menu.get_node("NewGame").pressed.connect(menu_to_new_game)
+	menu.get_node("LoadGame").pressed.connect(menu_to_load_game)
+	menu.get_node("Settings").pressed.connect(menu_to_settings)
+	menu.get_node("ExitGame").pressed.connect(exit_game)
+
+	new_game.get_node("PlayerCount").tab_changed.connect(set_player_count)
+	new_game.get_node("PlayerName").text_changed.connect(set_player_name)
+	new_game.get_node("BackToMain").pressed.connect(new_campaign_to_menu)
+	
+	load_game.get_node("BackToMain").pressed.connect(load_campaign_to_menu)
+
+	settings.get_node("ToggleFullScreen").pressed.connect(toggle_fullscreen)
+	settings.get_node("ChooseArray").item_selected.connect(choose_array)
+	settings.get_node("BackToMain").pressed.connect(settings_to_menu)
 
 
 
@@ -34,6 +48,30 @@ func exit_game():
 
 
 #########################
+# New Campaign          #
+#########################
+func new_campaign_to_menu():
+	set_menu_visibility(menu)
+
+
+func set_player_count(i: int) -> int:
+	return i + 1
+
+
+func set_player_name() -> String:
+	return new_game.get_node("PlayerName").text
+
+
+
+#########################
+# Load Campaign         #
+#########################
+func load_campaign_to_menu():
+	set_menu_visibility(menu)
+
+
+
+#########################
 # Settings Menu         #
 #########################
 func settings_to_menu():
@@ -45,22 +83,14 @@ func toggle_fullscreen():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		
 
 
+func choose_array(i: int):
+	#TODO: Array
+	print(i)
+	pass
 
-#########################
-# New Campaign         #
-#########################
-func new_campaign_to_menu():
-	set_menu_visibility(menu)
-
-
-
-#########################
-# Load Campaign         #
-#########################
-func load_campaign_to_menu():
-	set_menu_visibility(menu)
 
 
 #########################
