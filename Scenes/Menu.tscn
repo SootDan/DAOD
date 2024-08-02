@@ -38,9 +38,20 @@ layout_mode = 2
 toggle_mode = true
 text = "Toggle Fullscreen"
 
-[node name="Setting2" type="Button" parent="Settings"]
+[node name="ChooseArray" type="OptionButton" parent="Settings"]
 layout_mode = 2
-text = "Setting2"
+item_count = 4
+selected = 0
+popup/item_0/text = "Choose Mode"
+popup/item_0/id = 3
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "Standard Array"
+popup/item_1/id = 0
+popup/item_2/text = "Point Buy"
+popup/item_2/id = 1
+popup/item_3/text = "Free For All"
+popup/item_3/id = 2
 
 [node name="Setting3" type="Button" parent="Settings"]
 layout_mode = 2
@@ -51,19 +62,24 @@ layout_mode = 2
 text = "Back to Menu"
 
 [node name="NewGame" type="VBoxContainer" parent="."]
-visible = false
-offset_right = 128.0
-offset_bottom = 136.0
-scale = Vector2(15, 15)
+offset_right = 180.0
+offset_bottom = 142.0
+scale = Vector2(10, 10)
 
-[node name="ToggleFullScreen" type="Button" parent="NewGame"]
+[node name="PlayerCount" type="TabBar" parent="NewGame"]
 layout_mode = 2
-toggle_mode = true
-text = "Toggle Fullscreen"
+tab_count = 6
+tab_0/title = "1"
+tab_1/title = "2"
+tab_2/title = "3"
+tab_3/title = "4"
+tab_4/title = "5"
+tab_5/title = "6"
 
-[node name="Setting2" type="Button" parent="NewGame"]
+[node name="PlayerName" type="TextEdit" parent="NewGame"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Setting2"
+placeholder_text = "... Campaign Name ..."
 
 [node name="Setting3" type="Button" parent="NewGame"]
 layout_mode = 2
@@ -83,10 +99,11 @@ scale = Vector2(15, 15)
 layout_mode = 2
 text = "Back to Menu"
 
+[connection signal="pressed" from="Main/NewGame" to="." method="menu_to_new_game"]
+[connection signal="pressed" from="Main/LoadGame" to="." method="menu_to_load_game"]
 [connection signal="pressed" from="Main/Settings" to="." method="menu_to_settings"]
 [connection signal="pressed" from="Main/ExitGame" to="." method="exit_game"]
 [connection signal="pressed" from="Settings/ToggleFullScreen" to="." method="toggle_fullscreen"]
 [connection signal="pressed" from="Settings/BackToMain" to="." method="settings_to_menu"]
-[connection signal="pressed" from="NewGame/ToggleFullScreen" to="." method="toggle_fullscreen"]
-[connection signal="pressed" from="NewGame/BackToMain" to="." method="settings_to_menu"]
-[connection signal="pressed" from="LoadGame/BackToMain" to="." method="change_to_menu"]
+[connection signal="pressed" from="NewGame/BackToMain" to="." method="new_campaign_to_menu"]
+[connection signal="pressed" from="LoadGame/BackToMain" to="." method="load_campaign_to_menu"]

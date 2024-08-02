@@ -1,20 +1,29 @@
 class_name Menu
 extends Node2D
 
-@onready var main: VBoxContainer = $Main
+@onready var menu: VBoxContainer = $Main
 @onready var settings: VBoxContainer = $Settings
 @onready var load_game: VBoxContainer = $LoadGame
 @onready var new_game: VBoxContainer = $NewGame
 
 
 func _ready():
-	set_menu_visibility(main)
+	set_menu_visibility(menu)
+	#settings.get_node("ChooseArray").
 
 
 
 #########################
 # Main Menu             #
 #########################
+func menu_to_new_game():
+	set_menu_visibility(new_game)
+
+
+func menu_to_load_game():
+	set_menu_visibility(load_game)
+
+
 func menu_to_settings():
 	set_menu_visibility(settings)
 
@@ -28,7 +37,7 @@ func exit_game():
 # Settings Menu         #
 #########################
 func settings_to_menu():
-	set_menu_visibility(main)
+	set_menu_visibility(menu)
 
 
 func toggle_fullscreen():
@@ -42,19 +51,22 @@ func toggle_fullscreen():
 #########################
 # New Campaign         #
 #########################
-# TODO: All of it
+func new_campaign_to_menu():
+	set_menu_visibility(menu)
+
 
 
 #########################
 # Load Campaign         #
 #########################
-# TODO: All of it
+func load_campaign_to_menu():
+	set_menu_visibility(menu)
 
 
 #########################
 # General Methods       #
 #########################
-func set_menu_visibility(menu: VBoxContainer):
-	var i: int = menu.get_index()
+func set_menu_visibility(vbox: VBoxContainer):
+	var i: int = vbox.get_index()
 	for child in get_children():
 		child.visible = true if child.get_index() == i else false

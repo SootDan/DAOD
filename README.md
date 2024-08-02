@@ -10,9 +10,11 @@ One can also create a campaign sheet detailing everything the party has encounte
 The program abides by the [Wizards of the Coast's Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy).
 
 ## Current Features:
-- N/A
+- Basic Menu
 
 ## To-Do:
+- Save/Load Function  
+- UI
 - Everything
 
 ## Current Bugs:
