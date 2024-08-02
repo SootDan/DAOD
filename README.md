@@ -12,8 +12,8 @@ Each character sheet has the character's basic info and stats. Dice roll
 modifiers are automatically applied on each roll.  
 One can also create a campaign sheet detailing everything the party has 
 encountered so far.  
-The program abides by the [Wizards of the Coast's Fan Content Policy]
-(https://company.wizards.com/en/legal/fancontentpolicy).
+The program abides by the
+[WOTC Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy).
 
 ### Current Features:
 - Basic Menu
