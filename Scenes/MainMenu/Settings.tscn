@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://Script/Menu/Settings.gd" id="1_kem43"]
 
 [node name="Settings" type="VBoxContainer"]
-visible = false
-offset_right = 128.0
-offset_bottom = 136.0
-scale = Vector2(15, 15)
+offset_right = 255.0
+offset_bottom = 180.0
+scale = Vector2(10, 10)
 script = ExtResource("1_kem43")
 
 [node name="ToggleFullScreen" type="Button" parent="."]
@@ -29,9 +28,23 @@ popup/item_2/id = 1
 popup/item_3/text = "Free For All"
 popup/item_3/id = 2
 
-[node name="Setting3" type="Button" parent="."]
+[node name="MasterVolume" type="HSlider" parent="."]
 layout_mode = 2
-text = "Setting3"
+tooltip_text = "Master Sound"
+rounded = true
+tick_count = 10
+
+[node name="SFXVolume" type="HSlider" parent="."]
+layout_mode = 2
+tooltip_text = "Master Sound"
+rounded = true
+tick_count = 10
+
+[node name="UIVolume" type="HSlider" parent="."]
+layout_mode = 2
+tooltip_text = "Master Sound"
+rounded = true
+tick_count = 10
 
 [node name="BackToMain" type="Button" parent="."]
 layout_mode = 2

@@ -2,7 +2,12 @@ class_name UserPreferences
 extends Resource
 
 @export var toggle_fullscreen: bool = 0
-@export var choose_array: int = -1
+@export var choose_array: int = 1
+@export var volume = {
+	"MasterVolume": 100,
+	"SFXVolume": 100,
+	"UIVolume": 100,
+}
 
 
 func save():

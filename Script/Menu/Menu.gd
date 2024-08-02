@@ -11,7 +11,8 @@ extends Node2D
 
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
-	settings.get_node("ChooseArray").selected = user_prefs.choose_array
+	settings.load_settings(user_prefs)
+
 	set_menu_visibility(menu)
 	
 	menu.get_node("NewGame").pressed.connect(menu_to_new_game)
@@ -27,6 +28,12 @@ func _ready():
 
 	settings.get_node("ToggleFullScreen").pressed.connect(toggle_fullscreen)
 	settings.get_node("ChooseArray").item_selected.connect(choose_array)
+	settings.get_node("MasterVolume").value_changed.connect(\
+	change_volume.bind("MasterVolume"))
+	settings.get_node("SFXVolume").value_changed.connect(\
+	change_volume.bind("SFXVolume"))
+	settings.get_node("UIVolume").value_changed.connect(\
+	change_volume.bind("UIVolume"))
 	settings.get_node("BackToMain").pressed.connect(settings_to_menu)
 
 
@@ -97,6 +104,11 @@ func choose_array(i: int):
 	user_prefs.choose_array = i
 	user_prefs.save()
 
+
+func change_volume(f: float, bus: String):
+	user_prefs.volume[bus] = f
+	print(user_prefs.volume[bus])
+	user_prefs.save()
 
 
 #########################
