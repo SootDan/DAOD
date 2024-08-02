@@ -50,5 +50,6 @@ layout_mode = 2
 text = "Back to Menu"
 
 [connection signal="pressed" from="Main/Settings" to="." method="change_to_settings"]
+[connection signal="pressed" from="Main/ExitGame" to="." method="exit_game"]
 [connection signal="pressed" from="Settings/ToggleFullScreen" to="." method="toggle_fullscreen"]
 [connection signal="pressed" from="Settings/BackToMain" to="." method="change_to_menu"]

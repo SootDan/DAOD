@@ -18,6 +18,10 @@ func change_to_settings():
 	settings.visible = true
 
 
+func exit_game():
+	get_tree().quit()
+
+
 #########################
 # Settings Menu         #
 #########################
@@ -31,3 +35,4 @@ func toggle_fullscreen():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
