@@ -6,8 +6,12 @@ extends Node2D
 @onready var load_game: VBoxContainer = $LoadGame
 @onready var new_game: VBoxContainer = $NewGame
 
+@onready var user_prefs: UserPreferences
+
 
 func _ready():
+	user_prefs = UserPreferences.load_or_create()
+	settings.get_node("ChooseArray").selected = user_prefs.choose_array
 	set_menu_visibility(menu)
 	
 	menu.get_node("NewGame").pressed.connect(menu_to_new_game)
@@ -16,7 +20,7 @@ func _ready():
 	menu.get_node("ExitGame").pressed.connect(exit_game)
 
 	new_game.get_node("PlayerCount").tab_changed.connect(set_player_count)
-	new_game.get_node("PlayerName").text_changed.connect(set_player_name)
+	new_game.get_node("CampaignName").text_changed.connect(set_player_name)
 	new_game.get_node("BackToMain").pressed.connect(new_campaign_to_menu)
 	
 	load_game.get_node("BackToMain").pressed.connect(load_campaign_to_menu)
@@ -59,7 +63,7 @@ func set_player_count(i: int) -> int:
 
 
 func set_player_name() -> String:
-	return new_game.get_node("PlayerName").text
+	return new_game.get_node("CampaignName").text
 
 
 
@@ -79,17 +83,19 @@ func settings_to_menu():
 
 
 func toggle_fullscreen():
-	if not DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+	if not DisplayServer.window_get_mode() == \
+	DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		user_prefs.toggle_fullscreen = true
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-		
+		user_prefs.toggle_fullscreen = false
+	user_prefs.save()
 
 
 func choose_array(i: int):
-	#TODO: Array
-	print(i)
-	pass
+	user_prefs.choose_array = i
+	user_prefs.save()
 
 
 

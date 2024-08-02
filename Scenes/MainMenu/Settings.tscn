@@ -1,10 +1,13 @@
-[gd_scene format=3 uid="uid://ecxfaxa36vov"]
+[gd_scene load_steps=2 format=3 uid="uid://ecxfaxa36vov"]
+
+[ext_resource type="Script" path="res://Script/Menu/Settings.gd" id="1_kem43"]
 
 [node name="Settings" type="VBoxContainer"]
 visible = false
 offset_right = 128.0
 offset_bottom = 136.0
 scale = Vector2(15, 15)
+script = ExtResource("1_kem43")
 
 [node name="ToggleFullScreen" type="Button" parent="."]
 layout_mode = 2

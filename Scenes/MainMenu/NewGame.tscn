@@ -15,7 +15,7 @@ tab_3/title = "4"
 tab_4/title = "5"
 tab_5/title = "6"
 
-[node name="PlayerName" type="TextEdit" parent="."]
+[node name="CampaignName" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 placeholder_text = "... Campaign Name ..."

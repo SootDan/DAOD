@@ -7,8 +7,7 @@ const save_game_path = "user://savegame.tres"
 
 
 func save_game(content):
-	var file: FileAccess = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
-	file.store_string(content)
+	ResourceSaver.save(self, save_game_path)
 
 
 func load_save():

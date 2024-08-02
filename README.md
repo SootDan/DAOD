@@ -34,3 +34,4 @@ This project is created and maintained solely by myself.
 [HP Calculation Formula](https://www.omnicalculator.com/other/hit-points)  
 [Color Palette](https://colorhunt.co/palette/1b262c0f4c753282b8bbe1fa)  
 [Saving and Loading Tutorial](https://www.youtube.com/watch?v=JGRY1uXWzyA)
+[How to Save User Preferences](https://www.youtube.com/watch?v=GPzdFzNq060)
