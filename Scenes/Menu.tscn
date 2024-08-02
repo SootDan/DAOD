@@ -6,6 +6,7 @@
 script = ExtResource("1_uvt8b")
 
 [node name="Main" type="VBoxContainer" parent="."]
+visible = false
 offset_right = 128.0
 offset_bottom = 136.0
 scale = Vector2(15, 15)
@@ -31,9 +32,10 @@ offset_right = 128.0
 offset_bottom = 136.0
 scale = Vector2(15, 15)
 
-[node name="Setting1" type="Button" parent="Settings"]
+[node name="ToggleFullScreen" type="Button" parent="Settings"]
 layout_mode = 2
-text = "Setting1"
+toggle_mode = true
+text = "Toggle Fullscreen"
 
 [node name="Setting2" type="Button" parent="Settings"]
 layout_mode = 2
@@ -48,4 +50,5 @@ layout_mode = 2
 text = "Back to Menu"
 
 [connection signal="pressed" from="Main/Settings" to="." method="change_to_settings"]
+[connection signal="pressed" from="Settings/ToggleFullScreen" to="." method="toggle_fullscreen"]
 [connection signal="pressed" from="Settings/BackToMain" to="." method="change_to_menu"]
